@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://kit.fontawesome.com/92707715c2.js" crossorigin="anonymous"></script>
+	<title>Music Player</title>
+</head>
+
+<body>
+
+	<!-- HEADER -->
+	<header>
+
+		<!-- NAVBAR TAG -->
+		<nav class="navbar navbar-expand-md navbar-dark px-4">
+
+			<!-- CONTAINER -->
+			<div class="container-fluid">
+
+				<!-- Navbar Brand -->
+				<a class="navbar-brand" href="#">
+					<img
+						src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUVFRgWFhYZGRgYGhoYGhgcGBgaGRgaGBgaGRoYGhocIS4lHB4rIRoZJjgmKy8xNTU1GiQ7QDs0Py40NTEBDAwMEA8QHxISHjQsJCs1NDc0MT00NDoxNDU0NDQ1PzQ0NjQ3NjQ0NDo1NDQ0PzQ0NDQ2NDQ0NDQ2NDQ0NDQ0Pf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAACAAEDBAUGBwj/xABEEAABAgMFBQUFBAgFBQEAAAABAAIDESEEBRIxURNBYXGBBiIykaEHUrHB0UJicvAUI4KSorLh8RYkU3OzJTM1Y8IV/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAMEBQECBv/EAC4RAAICAQIEBAUEAwAAAAAAAAABAgMRBCEFEjFhIkFRcRNCgaHRFBVSsSMykf/aAAwDAQACEQMRAD8A9mVSJmUsZ1Kma0EAkIBQMuqG0bkMUyMhRPC7051QDQM1M/I8kERoAmKKNrySBNARq6hwDRVy86oBRcypYGXVOxoImQo4pkaUQBWjcgg+JFCrOdUb2gCYogCfkeSqKRrySKqfANEA7clXi+I/ncmLzqpmNBEzmgGgZdUo+QQxTI0olCM86oAYXiH53Kw7IqOI0ATFCow86oCNW2ZDklgGigc8zzQDRcypLPkUUNoImaoIpllRAFHy6qOFmEUIzNao3tAEwKoCQqkjDzqrGAaICqkrWAaJIAdiOKjMQimiLb8PVNs51nmgHa3FU8knd3Lfqliw0z3peLhL5oBmuxUKIwwK6VQ4MNc0+1nSWdEAO3PBSbEcUGw4+ifb8PVAC6IRQbkTW4qnkm2eKs81BFtjYfd8RzkPmgLDu7lv1Q7SdDIDyWXGvB7su6OGfmq5eTmZoDZdFhj7Qnzn8EH/AOgPyCsoFPNAan6TD1PkU4tjRQOEuM1lTSmgNthDqz8incMOXqsLFLIqVtteKE4hx+qA1mvJMj+d6MwgK1VGz21pzMjocj1V3azpLNADtzwRiEDWtaodhx9E+1lSWVEAznkUCdvez3aJsGKs5TTzw8Z9EAnDDUcqoWvJod6LFiplvTbPDWc5IA9iOKj254Ittw9U2w4+iAW2PBJPsOPokgB2JRh4FDuR4xqPNQPBJMgUATm4qhJndz3ooRkK05potZSryQDudMSGaBsMiuiaEJGtOamc4SNQgG2wUEUYQXOIAG9BFdgaXOoAsO2250R08mjJvzPFAWrTeTnd1ndbrvP0CqAprPCc8yaJn4cStyw2JrKuq7U7uQ+aAzoNjeakSGp+mavQ7AzUk+QQXhfEJlMWI6NkT1OQWLG7QPn3WtbxNT9FVt1lNeze/otyevS2T3S2OjZZQK4R8VYa9u4ei4aLekZ2cR3Q4R6Ku6I52bnHqSqkuKR+WLLK4fLzkjvDCnokYTJSLR5fNcGHuGTnDqQpod4RW5RHdTP4ri4ovOLD4fLykdfEsDTVsx1+qpx7A5tcxwz8lmWbtDEbQgOH7p8xT0WrAvyFEkCS12hlLocvgrdWtpnsnh9yvPS2w3az7Ge5TWa2OYdW6fTRakWyNfnT735zWNa7M5hkajcRkfoeCtlc6KDa2vE2n+nApGETXVczAjuYZt6jcV01ktTXtDgeBBzB0KANrg0SOaF4xZJojSTMVRQjLOnNAMxuGpROeHCQzKUUzFK8lHDaQQSEA4hFSbYIi8ahVsB0PkgJ9sElDhOh8kkACtw8giVWJmUAUfPons2/p80cHLqhj7kAUfJQMzHNHAzVW+rVghmXid3RwnmfL4hAZN727G7C091v8R3lVbNDL3BozPkBqqrStzbtssKZAMRwnL4T0AXic4wi5SeEj1GMpS5YrcumNCs8MEmU/Nx4D8yXN3jfL4pkO633Qanmfkq52kd8/E4+TR8gt677rbDqau1OQ5D5rIndbqniO0TRjVXQsy3kY1kuqI+ssLdXTHkMytaBccNvim485DyH1WnNJSV6WqPVZ9zxPUWS88exFCsrG+FrR0HxU4TTSmrCSXQgeX1CKhiWdjvE1p5gKSaU0eH1C26GbHuWE7IFp4GnkVlWu54jat7w4eL936Lp5pTUFmmqn5Y9iaGosh559zlLHeUSFQGY3tOXTe1dFZLXDjtlv3tOY4j6qO3XeyKKiTtzhn11XO2iA+A4GoP2XDI8vooY2XaV77xJXCvULbaRp3hZHQ3SNQfCdf6qOxWosfP7Jo4cNeYVuy2xtoaWPo8CfOX2h8wsuI0tJBEiDIhbFdsbIqUXsZ04OEuWXU7WAZtBGRqgtGYWNclqxNLCaty/Cfp9FtWfIr2eAYGfRTRcigj5dVHCzCABqupiqc0BdSVKaSALaHVTNaCASKptgOKAxCKUogFEOEyFAnhd6c6pw3FU8qJnkME92+fBAFEaAJihXL37aC6JhnRgl1NT8lqW292ta5xkGtEy4z3cF5pel+PjPc5s2NJJkPEeLjP4IDsLDhbOI4TazIe84+Fvz6Kr348SZq52/c0fQLLukP2YxOccRxBpJIExKYGpXYXZZdm2vidU/IdFi6mbvu5E/Cv7NKqKpr5vmZYsdmbDbIdTvJ1KnmgmmxKaLUVhELy3lkk0pqPEliXeYYJJpTUeJLEnMMEk0pqPEliTmGCSaU1HiSxJzDBJNRx4LXghwmD+ZjQpTSxLjkmsM4k1ujmLVZ3QXiROrXDf/XVXLXFEVoijxUa8aGXdPIgei1LZZxEYQeYOh3FcdekN4huDS5rm1cAZTDcwZZ69FXpk9Pckn4WWLEr6m3/sjbumNgisJyJwn9qnxkutinDlReO2G+Hw3gmb2zE2kmdD9k7j6L02xXyyKxr82uFCKEagg7xktwzDVhmZkao3tAEwKqJjmyxNMwaImvJod6AERDqp9mNEGxGpQbc8EBNsxomUW3PBOgH2/BNs51nmg2TtFMHgCR3IAMeGh5zWJbbdtHU8Iy48SrV92mTQB9unQZ/ELFYUBzXbW8fBABz77/UNHnM9AuesELG9rNTXkKk+SC+7VtLREfuxlo5N7o+C0uy0Gb3v90YRzcfo31UGps+HU5ei+5JTDnmkdhdcDE6ZFG167vhPot+aoXZDwsnvcZ/IK5NYlO0fcv2vml7BzWNefaWzwCWEl7xmxgDiOZJAB4Tmq3a+9nQIIawyfEOFp3taKucOOQ6ri7DZ59aqwm2RnZQe2dnJk5kRg95zQR1wuJ9F0MGO17Q9jg5rhMOBmCOBXmtpsgAVjsleZhRxBJ7kQyAnRrz4SNJ5dQjyjh6NNKajmlNeec7gOaU0E1Qvu37CA+IM2iTfxOOFvqQnMMFe+e0kKznBIvf7jZd2eWInLdxWM3tq+dbOJcHmcv3Vy9jbiJc4klxmSakkmpK1XWUSXs4dnc1+wrQDgmHDxMdIOHHiOK05ryUx3QYjYjDJzDPnqDqCJg816lZ44exr25PaHDk4TC8yeDuCxNY98QKhw30PMZelOi1ZqvbGYmuHCfkobd4tElbxJM8wvWDgiOaMsxydUD5dFsdirxk98EmjgXs/E3xDqBPoq/aqFLA/mw+hHzWFd9q2cZj/AHXt8iZH0JWxpLfiUpvr+ClfDlsaPWoFpLDPdvGv9VvQwJBwMxmOq5dzlqXJaZh0M/ib8x81ZITX23BNsOKYQipdqEBHsOKSk2oSQD4xqPNQPaZ5FRq3DyCA5O94s4pHuyHpM/FVDEkCdAT5Caa3PnFf/uPHk4j5KrbHyhv/AAP/AJSgPNGPnXWp61XadkoX6kn33n0kPquEhuovROyjf8vD4lx/jKzuKSxT9UW9Gv8AJnszr4NGjkimo4Z7o5I5rIjPwosNbnGe0IGcB27vt69wj0BVXszYXRyTPCxvidLea4Rx+C6q/rsFohFhMneJjvdcMp8DMg80uz1hMCzsY4SdLE+s++6pqM5UHRTq1KG3U8Y3K9t7Ptc3uPIduxSLTzkKc1w8CE9tqhsc0h7Y0OY5Pac+VV6lNZz7pYbQLQfEGYZSoXZB54hswuRu9Triac0poZpTUfOdwFNYnbGGXWSJL7OB55MeCfT4LZmhe0OBa4Agggg5EGhBXYzw8jB532Xu90d5E5MbIvPPJo4n0ku3dc8Etw4T+LEZ80NyXUyzMcxhJDnufM5yNGg6yAAWjNepW5ez2OKJ5h2ksToEQsdUEYmEfabllqF6PdUMsgQmHNsNjTzDACq95XUyO6E54nsnFwEqOmPCeEw0/srQmkrU0gohTScaIZpiVG5ncHH9q4X6l591zXeZl/8AS4OI5ejdpm/qIv4J+Rn8l5o9y0+EyzS13INYvGn2PWLHGxw2O95jT5tBVu74+GKw/eAPI0PxWPcz/wDLwf8AbZ8FZe+VdFqFQ78vGoVbAdD5Jm7ldQFPAdD5JK4kgBwqu81KW1OvwUjWAiZzQHB2syiP/G/+YlQxjNjhq1w8wVc7QQ8FoeNzpOHUV9QVQa5AeXsdQL0jsg6dmh83D+Ny83iswPc33XFvkZLv+w8adnl7j3Dzwu+azeKRzR9UW9I/Hjszs4RojmomI5r56M/CW2twppTQpTXvmOYCmlNDNKac4wFNKaGaU05hgKaU0M0ppzDAU0poZpTXOcYCmlNDNC94bUkCsqmVTkF3mGCSaB7qJ5qOIV5lPY6luYPacys8X8B9TJeXucvR+2sXDZn/AHixn8QJ+BXmhrTWnmt3hEcUt9ypq34kux6hddIEIaQ2fyhTPM6aqJgwtDdAB5CSnsDMcVjdXDyBmfQLVKh6HIS6KriKPaHX4KbZDRAVplOrGyGiSAHYDUoTEIpoi2w0QmHOuqA53tbZi5rIwHhOF3I+E+dP2ly7Xr0e0Q2ua5jxMOBB5FedW+yugvLHbsjuc3cUBwPaODgtL9HyeP2s/UFbns/tXeiQycwHj9k4XfFqg7XWXExsQCrDJ34XZHofisTs9b9jaGPJk2eF34HUPlQ9FX1VfxKZRXXH3RJTLlmmezQzMAqZVLO7d1VlfHZwzUa3OB7XF8G2MeIkSGyI0FzmEkgt7rjgmA6mGi3LPY7zwB8CPZ7VDcJtcZNJ8gBPm6iLtndpjWfE0TfCOMDVspPHlX9lcNdN6x7M7FBeWzqW5sd+JhoeefFbmjdVtS51nG3cgmpfKzuHXreDP+5d73DWG4vHk0OQf4uDfHZbSzWcM/OSGwe0EGkeEWn32HEP3TUdCVvWbtVZn+GM0T3PJYfJ0lZ/QaaXTb6kTtsj1RiDtrZftbRvOGfkVIO2di/1SObH/RdK22sfk5jhwLXJY2e6390fRef2qp+bOfqX6HMntnYv9Unkx30Tf4ysx8O1d+GG75rp9q0fZYP2W/RRxb0hs8T2NkJ1e0U5TT9pqXVsfqG+iOc/xQXeCx2p+koTpHymjFvvCJ/27AWcYrw3+EyKvWvtlZmT/WYzowOdOk/F4fVc9ePtAeZiBDDfvvOI9GCnmSurQaaHXf6nVZZLoi7brLb2tL7Ta7PZYY9wY3HgJip4ArlbgYbRbmHHEiMY4vxPPeIYKEiZw96VAVmXhbItofjivc926ZoODWijRyXa9gbtwQ3RnCRiHC38Dd/V0/IKLUyrpqbgkvLvuSRjL5mdYSgdqiKitDqS1+CwM52J4rc4X2g2qTYbN7nOeeTQGj1cfJcrcsHHaIbdwdiPJne+Q81Y7W3htbS8g91kobdO7PEf3pq92Psvjinf3G/Fx+AX12ir+HQovr1/6Z18uaxs6xz1u9krLie55yaMI/EanyH8ywIEJ0RzWtE3OMgPmdAvQ7vsIgMa0Vw5nUnM+atkJb2I1KDbngj2w0Q7A6oBtudAnS2B1SQA7J2nqFI14AkcwpMQ1Vd4qUA72lxmMlRvS62RmYXd1wqx8plp39OC0YJkKpo1ZSQHmF63U9mJkRs2OBGIeFw4HceC82vCxuhPLHdDuc3cQvpRrAaOEwcwRQ+axL57HWK0tLXQw01wuYcLmnVoy0pKSA4/sbe+3gBpP6yFJrtSPsP6gS5grrGOmJrlrp9nlostoESFaGOhjuua9rg9zDm2Te7PKR1C6Js2uIO6hC+W4npfhWc0ej6e5pUz544fVFmS857TXLsImJo/VvM26NOZZ8xw5L0cGahtdlZFYWPE2uzHwIO4qnpr3TLt5ntnkmBLAty+bkfZ3T8TCe68fB2hWXJb0JxmuaLyhgrCHKooURxe8fM/VTyTYV6ycwVyxNs1ZwpYUydwVtmls1Zwq7dd0vtDsLBJo8Tz4W/U8F5lNRWZPYYIbjud1oiBuTBIvcPst05mUh57l6dDhta0NaAGtAAAyAFAAobsu5kBgYwcXOObnb3FW1iarUfGlt0XT8hAGi5ztVe/6PBc8Hvvmxg4keLk0V8tVuxXTMh/dYF9ez+0WuOHvtENkMABrQ1znNFCaGTS4ms+Win4dpfjW+Lot3+DzdPkj3Z5bY7M6I8MbUnM6De4r0a6bsc4NhQWl2EAcOLnHITqV110dibJZmhrWF7qYnvJLnHiBJoHABdHZILWNwtaGjcAAB5L6szDMuG522cTdV7hV2nBu+XFbDnAiQzXlnt0tT4cOyPhvcxwfEk5ri1w7rciKhdL7Mrxi2iwQYsZxe8l7S52ZDXuaJneZAVQHUiG7T1Cm2o19CiLhqqmE6FAWdq3X4pKvhOiSAFW4eQSwjQKB7jMoB4+fRFZ9/RPCExWqaNSUqckAUfJQMzHNHCMzVSvaJGm5AGsi32MPqKOHrwKuYzqfNWcI0CitqjbBxktmeozcXlHJtJaSCOYVhrgclqW2yNeTOhGR/O5Y8ezuYainvDLzXy+r4fOl56r1NCFsbOzJXsBBBAINCCJgjiFzd5dkmvOKE7AfdNWdN7fVbzI+qma8HIqnXbOp5iz200ecWq4rQzxQ3Eas7w9K+iz3MIzBHQr1lJXY8Rkl4l9weStbMyEydAJn8yV2zXPHieGG7mRhHmei9MknSXEpfKgcnd3ZECsZ0/uNJl1dn5SXTwYLWNDWNDWjIASCkc4DNQujaKnZdO1+J/gJNkpMlXe8uoP7ooUJ0QyaJ/AdVt2K7msEz3jruHL6qzpdDZe89F6nidka+vX0Ibru7D3nCu4af1Vt+ZSxHU+asNaJCi+pppjTFRitv7M+c5Tllig+Efneo4+YTRTI0RQazn6qY8nkvt4H6iy/wC5E/kaui9j5/6VD/HE/wCQrF9vjP8AL2Y/+1w82f0Wz7G//GQh9+L/ADlAdm1XUBaNAq2I6lAXElTxHU+aSALanVShgImc0OwGqYxJU0QDPdhMhknh97PcnDcVctyR7vGfyQDvaGiYzQNiEmR3pw/FTJPspVnlVAHshp6lQ7U6otudE+w4oB2sBEzmgi0puO7P4pzEw00TgYq5bkBnRLsa6eE4T5jy3KlFu6INwI1B+S3pYcqzTB+Kiz7uG0WPOMPsTx1E49zmjibnMcx9UhFOq6YwpVnlXyULg05tB6BUZcF/jL7Eq1a80c/tTqkC45TPIfRdH+iN0A6BFilQDJcjwX+UvsHq15IwGWF5+zLnT+qvWW6h9oz4CgWiBirluTkYa5zV2nhlFe7WX3Ipamcumw2yDRQSlkmEQ6pw/FTX+6fZSrPJaKSSwiAPZDT1K857Y9tbRYrxgQGBjoUVsMOa4VaXRHMLmuFZylnMUXoW3Oi8Y9rjZXpYjq2F/wA5XQes3xe0CzQ9pHdKZwtaAS97qyaxoq5xlkF59fPtcEB+FticQZ+OO1jpjVrWvA3faS9r74kGLZrRhc6EwRGEioY95aQZbiWgifReN3xeJjvxbhNAdf299oLbys7If6OYTmRMc8Ye0twubKeFpBmRu3L032Oj/pcM7w+L/OV85L6U9lVkfCu2CyI0tc8veAc8LnFzSRumK9UB1winVTbIaepQbHim250QEmybp8UlHtzokgC244oDDJrSqHZu0UzXACRQAtdhoedEnd7LdqhiNmZiqeF3ZzpNAJrMNT6IjFBpWtEojgRIVKjawgzIyQD7A8Ee2HFHtBqoNmdEARhk1G9O12Gh50RNcAJHNRxBMzFUAROLLdqmawip9EoQw50RPcCJCpQCMUGla0QbA8EzWEGcslPtBqgA2w4oXMnUb0JhnRSscAJHNAC04aHnRJxxUG7VNEGLKqUMYc6IBNYRU7v7ItsDSqd7gRIZrF7Tw4/6JaP0cO2uzdgwyxYvu/elOXFAFbr8skF2CLaYEN4+y+KxrhzBNF5P7ULygR7fYXwYrIjQGNLmPa8AiNkS00XCX/eTYmFjWYAwmYlKtQZjOc5zJrNQ9mrFEjWqAyG0ucYkMyaCZAPbNx0A3k0CA+q7TZmxGua9rXNcC1zHAOa4ZEOBoQuStfszut7sTrNhJ3Me9jf3Q6Q6Lsw4Ch1PxQRBiyqgOXursFd0B2KHZ2lwIcHPLomEjItxEgGcjNdQGEGZShiRmaI3OBEhmgG2w4oNgeCYQzop9oNUBDsDwTqXaDVMgDmqsQVKBW4eQQAwMkMfchj59E9m39PmgGg5qZ5oeSGPkoGZjmgGkrgKdUigDiCpUkHLqjhZBQx8+iAKPuQwc09n3o42SAJ5oeSqyTszHNXEALSq8UVP53IHZqzB8IQAwMuqVoyQ2jMJWfMoAYXiH53Kw40QxvCfzvVZuYQGdbrhssd2ONZoT3e8+GxzvMiZV67bqs8BsoMKHDBzDGtbPnILQVN+Z5lAHFFSis+RRwfCPzvUdozCAKNl1UcIVCeBn0U0XIoAiVTkk1XUBSkkrqSAolW4eQSSQEMfPois+/omSQBx/CoGZjmEkkBcVEpJIC3CyCgj5jl9U6SAez71JH8JSSQFdmY5hXEkkBSdn1VmD4QkkgI7RmErP8kkkBJG8J/O9VmZjokkgLqpOzPNJJAWYPhH53qO0ZhJJANZ8+imi5FMkgKrforySSASSSSA/9k="
+						alt="Logo" width="30" height="30" class="d-inline-block align-text-top rounded-circle">
+					Ninja <b>Studio</b>
+				</a>
+
+				<!-- Hamburger Icon -->
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<!-- Navbar Content (collapsable) -->
+				<div class="collapse navbar-collapse" id="navbarScroll">
+
+					<!-- Navbar List -->
+					<ul class="navbar-nav me-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="#">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Favourites </a>
+						</li>
+					</ul>
+
+					<ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll">
+						<li class="nav-item my-auto mx-2">
+							<form class="d-flex" role="search">
+								<i class="fa-solid fa-magnifying-glass text-white fs-5 my-auto mx-1"></i>
+								<input class="form-control bg-dark border-0 my-2 blue-color" type="search" placeholder="Search">
+							</form>
+						</li>
+						<li class="nav-item text-white my-auto mx-2">
+							<i class="fa-sharp fa-solid fa-bell"></i>
+						</li>
+						<li class="nav-item my-auto mx-2">
+							<img src="https://s.ndtvimg.com/images/entities/300/virat-kohli-967.png" alt="your-profile-picture	"
+								width="36" height="36" class="d-inline-block align-text-top rounded-circle">
+							<img src="" alt="">
+						</li>
+
+					</ul>
+
+
+				</div>
+
+			</div>
+
+		</nav>
+
+	</header>
+
+	<!-- MAIN -->
+	<main class="container pt-5">
+
+		<div class="row">
+
+			<!-- Main Section -->
+			<section class="main-section col-9 navbar-nav-scroll">
+
+				<!-- Top Section -->
+				<section class="container section g-2">
+					<div class="row">
+
+						<div class="col-4 py-2 scale-up-img">
+							<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed" class="h-100 w-100" alt="">
+						</div>
+						<div class="col-4 py-2 scale-up-img">
+							<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed" class="h-100 w-100" alt="">
+						</div>
+						<div class="col-4 py-2 scale-up-img">
+							<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed" class="h-100 w-100" alt="">
+						</div>
+
+					</div>
+				</section>
+
+				<!-- Latest Release Section -->
+				<section class="container section g-2">
+					<h3 class="section-heading">Latest Release</h3>
+					<div class="row row-cols-2" style="width: 85%;">
+
+						<div class="col">
+							<div class="card border-0 mb-3" style="max-width: 540px;">
+								<div class="row g-0">
+									<div class="col-4">
+										<a href="#active-song-description" class="" role="button" data-bs-toggle="offcanvas">
+											<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+												class="img-fluid rounded-start scale-up-img" alt="song-thumbnail">
+										</a>
+									</div>
+									<div class="col-6">
+										<div class="card-body py-0">
+											<h5 class="card-title">Onism</h5>
+											<p class="card-text"><small class="text-muted">Aug, 2017</small></p>
+										</div>
+									</div>
+									<div class="col-2 text-end">
+										<div class="dropdown">
+											<a class="text-dark text-decoration-none h3" href="#" role="button" data-bs-toggle="dropdown">
+												...
+											</a>
+											<ul class="dropdown-menu">
+												<li><a class="dropdown-item" href="#"><i class="fas fa-list-ul"></i> Add to Queue</a></li>
+												<li><a class="dropdown-item" href="#"><i class="fas fa-music"></i> Add to Playlist</a></li>
+												<li><a class="dropdown-item" href="#"><i class="fas fa-info-circle"></i> Get Info </a></li>
+											</ul>
+										</div>
+										<small class="text-muted">4:44</small>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col">
+							<div class="card border-0 mb-3" style="max-width: 540px;">
+								<div class="row g-0">
+									<div class="col-4">
+										<a href="#active-song-description" class="" role="button" data-bs-toggle="offcanvas">
+											<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+												class="img-fluid rounded-start scale-up-img" alt="song-thumbnail">
+										</a>
+									</div>
+									<div class="col-6">
+										<div class="card-body py-0">
+											<h5 class="card-title">Onism</h5>
+											<p class="card-text"><small class="text-muted">Aug, 2017</small></p>
+										</div>
+									</div>
+									<div class="col-2 text-end">
+										<div class="dropdown">
+											<a class="text-dark text-decoration-none h3" href="#" role="button" data-bs-toggle="dropdown">
+												...
+											</a>
+											<ul class="dropdown-menu">
+												<li><a class="dropdown-item" href="#"><i class="fas fa-list-ul"></i> Add to Queue</a></li>
+												<li><a class="dropdown-item" href="#"><i class="fas fa-music"></i> Add to Playlist</a></li>
+												<li><a class="dropdown-item" href="#"><i class="fas fa-info-circle"></i> Get Info </a></li>
+											</ul>
+										</div>
+										<small class="text-muted">4:44</small>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="card border-0 mb-3" style="max-width: 540px;">
+								<div class="row g-0">
+									<div class="col-4">
+										<a href="#active-song-description" class="" role="button" data-bs-toggle="offcanvas">
+											<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+												class="img-fluid rounded-start scale-up-img" alt="song-thumbnail">
+										</a>
+									</div>
+									<div class="col-6">
+										<div class="card-body py-0">
+											<h5 class="card-title">Onism</h5>
+											<p class="card-text"><small class="text-muted">Aug, 2017</small></p>
+										</div>
+									</div>
+									<div class="col-2 text-end">
+										<div class="dropdown">
+											<a class="text-dark text-decoration-none h3" href="#" role="button" data-bs-toggle="dropdown">
+												...
+											</a>
+											<ul class="dropdown-menu">
+												<li><a class="dropdown-item" href="#"><i class="fas fa-list-ul"></i> Add to Queue</a></li>
+												<li><a class="dropdown-item" href="#"><i class="fas fa-music"></i> Add to Playlist</a></li>
+												<li><a class="dropdown-item" href="#"><i class="fas fa-info-circle"></i> Get Info </a></li>
+											</ul>
+										</div>
+										<small class="text-muted">4:44</small>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="card border-0 mb-3" style="max-width: 540px;">
+								<div class="row g-0">
+									<div class="col-4">
+										<a href="#active-song-description" class="" role="button" data-bs-toggle="offcanvas">
+											<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+												class="img-fluid rounded-start scale-up-img" alt="song-thumbnail">
+										</a>
+									</div>
+									<div class="col-6">
+										<div class="card-body py-0">
+											<h5 class="card-title">Onism</h5>
+											<p class="card-text"><small class="text-muted">Aug, 2017</small></p>
+										</div>
+									</div>
+									<div class="col-2 text-end">
+										<div class="dropdown">
+											<a class="text-dark text-decoration-none h3" href="#" role="button" data-bs-toggle="dropdown">
+												...
+											</a>
+											<ul class="dropdown-menu">
+												<li><a class="dropdown-item" href="#"><i class="fas fa-list-ul"></i> Add to Queue</a></li>
+												<li><a class="dropdown-item" href="#"><i class="fas fa-music"></i> Add to Playlist</a></li>
+												<li><a class="dropdown-item" href="#"><i class="fas fa-info-circle"></i> Get Info </a></li>
+											</ul>
+										</div>
+										<small class="text-muted">4:44</small>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</section>
+
+				<!-- Popular Artists -->
+				<section class="container section">
+
+					<h3 class="section-heading">Popular Artists</h3>
+
+					<div class="container">
+						<div class="row row-cols-5">
+
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<a href="artist-playlist.html">
+										<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+											class="card-img-top img-fluid rounded-circle" alt="popular-artist">
+									</a>
+									<div class="card-body">
+										<p class="card-text">Artist Name</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<a href="artist-playlist.html">
+										<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+											class="card-img-top img-fluid rounded-circle" alt="popular-artist">
+									</a>
+									<div class="card-body">
+										<p class="card-text">Artist Name</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<a href="artist-playlist.html">
+										<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+											class="card-img-top img-fluid rounded-circle" alt="popular-artist">
+									</a>
+									<div class="card-body">
+										<p class="card-text">Artist Name</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<a href="artist-playlist.html">
+										<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+											class="card-img-top img-fluid rounded-circle" alt="popular-artist">
+									</a>
+									<div class="card-body">
+										<p class="card-text">Artist Name</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<a href="artist-playlist.html">
+										<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+											class="card-img-top img-fluid rounded-circle" alt="popular-artist">
+									</a>
+									<div class="card-body">
+										<p class="card-text">Artist Name</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<a href="artist-playlist.html">
+										<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+											class="card-img-top img-fluid rounded-circle" alt="popular-artist">
+									</a>
+									<div class="card-body">
+										<p class="card-text">Artist Name</p>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</section>
+
+				<!-- Music Themes Section -->
+				<section class="container section">
+
+					<div class="container">
+						<div class="row">
+
+							<div class="col">
+								<div class="card border-0 text-white w-100">
+									<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed" class="card-img img-fluid"
+										alt="music-themes">
+									<div class="card-img-overlay p-0">
+										<h5 class="card-title card-img-overlay-text position-absolute translate-middle shadow">Party</h5>
+										<div class="w-100 h-100 opacity-25" style="background-color: #eb874d;"></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col">
+								<div class="card border-0 text-white w-100">
+									<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed" class="card-img img-fluid"
+										alt="music-themes">
+									<div class="card-img-overlay p-0">
+										<h5 class="card-title card-img-overlay-text position-absolute translate-middle shadow">Party</h5>
+										<div class="w-100 h-100 opacity-25" style="background-color: #63bff3;"></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col">
+								<div class="card border-0 text-white w-100">
+									<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed" class="card-img img-fluid"
+										alt="music-themes">
+									<div class="card-img-overlay p-0">
+										<h5 class="card-title card-img-overlay-text position-absolute translate-middle shadow">Party</h5>
+										<div class="w-100 h-100 opacity-50" style="background-color: #948fd6;"></div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</section>
+
+				<!-- English Songs Section -->
+				<section class="container section">
+
+					<h3 class="section-heading">Latest English</h3>
+
+					<div class="container">
+						<div class="row row-cols-5">
+
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+										class="card-img-top img-fluid" alt="popular-artist">
+									<div class="card-body">
+										<p class="card-text">Song Name</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+										class="card-img-top img-fluid" alt="popular-artist">
+									<div class="card-body">
+										<p class="card-text">Song Name</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+										class="card-img-top img-fluid" alt="popular-artist">
+									<div class="card-body">
+										<p class="card-text">Song Name</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+										class="card-img-top img-fluid" alt="popular-artist">
+									<div class="card-body">
+										<p class="card-text">Song Name</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+										class="card-img-top img-fluid" alt="popular-artist">
+									<div class="card-body">
+										<p class="card-text">Song Name</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+										class="card-img-top img-fluid" alt="popular-artist">
+									<div class="card-body">
+										<p class="card-text">Song Name</p>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</section>
+
+				<!-- Hindi Songs Section -->
+				<section class="container section">
+
+					<h3 class="section-heading">Latest Hindi</h3>
+
+					<div class="container">
+						<div class="row row-cols-5">
+
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+										class="card-img-top img-fluid" alt="popular-artist">
+									<div class="card-body">
+										<p class="card-text">Song Name</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+										class="card-img-top img-fluid" alt="popular-artist">
+									<div class="card-body">
+										<p class="card-text">Song Name</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+										class="card-img-top img-fluid" alt="popular-artist">
+									<div class="card-body">
+										<p class="card-text">Song Name</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+										class="card-img-top img-fluid" alt="popular-artist">
+									<div class="card-body">
+										<p class="card-text">Song Name</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+										class="card-img-top img-fluid" alt="popular-artist">
+									<div class="card-body">
+										<p class="card-text">Song Name</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="card w-100 border-0" style="width: 18rem;">
+									<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+										class="card-img-top img-fluid" alt="popular-artist">
+									<div class="card-body">
+										<p class="card-text">Song Name</p>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</section>
+
+			</section>
+
+			<!-- Aside Section -->
+			<aside class="aside-section col-3 container navbar-nav-scroll">
+
+				<!-- Aside Queue Section -->
+				<div class=" section container w-95 float-right">
+
+					<div class="container">
+						<div class="row">
+							<div class="col-8">
+								<h3 class="text-white">Queue</h3>
+							</div>
+							<div class="col-4">
+								<div class="dropdown">
+									<a href="queue-dropdown" class="text-decoration-none text-secondary dropdown-toggle" role="button"
+										data-bs-toggle="dropdown">
+										Queue
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<ol class="list-group list-group-numbered">
+
+						<div class="col">
+							<div class="card border-0 mb-3" style="max-width: 540px;">
+								<div class="row g-0">
+									<div class="col-1 d-flex align-middle">
+										<p class="text-white align-middle m-0">01</p>
+									</div>
+									<div class="col-3">
+										<a href="#offcanvasBottom" class="" role="button" data-bs-toggle="offcanvas">
+											<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+												class="img-fluid rounded-start scale-up-img" alt="song-thumbnail">
+										</a>
+									</div>
+									<div class="col-6">
+										<div class="card-body py-0">
+											<h5 class="card-title">Song Name</h5>
+											<p class="card-text"><small class="text-muted">Singer Name</small></p>
+										</div>
+									</div>
+									<div class="col-2 text-end">
+										<i class="fa-regular fa-heart text-white"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col">
+							<div class="card border-0 mb-3" style="max-width: 540px;">
+								<div class="row g-0">
+									<div class="col-1 d-flex align-middle">
+										<p class="text-white align-middle m-0">01</p>
+									</div>
+									<div class="col-3">
+										<a href="#offcanvasBottom" class="" role="button" data-bs-toggle="offcanvas">
+											<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+												class="img-fluid rounded-start scale-up-img" alt="song-thumbnail">
+										</a>
+									</div>
+									<div class="col-6">
+										<div class="card-body py-0">
+											<h5 class="card-title">Song Name</h5>
+											<p class="card-text"><small class="text-muted">Singer Name</small></p>
+										</div>
+									</div>
+									<div class="col-2 text-end">
+										<i class="fa-regular fa-heart text-white"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="card border-0 mb-3" style="max-width: 540px;">
+								<div class="row g-0">
+									<div class="col-1 d-flex align-middle">
+										<p class="text-white align-middle m-0">01</p>
+									</div>
+									<div class="col-3">
+										<a href="#offcanvasBottom" class="" role="button" data-bs-toggle="offcanvas">
+											<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+												class="img-fluid rounded-start scale-up-img" alt="song-thumbnail">
+										</a>
+									</div>
+									<div class="col-6">
+										<div class="card-body py-0">
+											<h5 class="card-title">Song Name</h5>
+											<p class="card-text"><small class="text-muted">Singer Name</small></p>
+										</div>
+									</div>
+									<div class="col-2 text-end">
+										<i class="fa-regular fa-heart text-white"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="card border-0 mb-3" style="max-width: 540px;">
+								<div class="row g-0">
+									<div class="col-1 d-flex align-middle">
+										<p class="text-white align-middle m-0">01</p>
+									</div>
+									<div class="col-3">
+										<a href="#offcanvasBottom" class="" role="button" data-bs-toggle="offcanvas">
+											<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+												class="img-fluid rounded-start scale-up-img" alt="song-thumbnail">
+										</a>
+									</div>
+									<div class="col-6">
+										<div class="card-body py-0">
+											<h5 class="card-title">Song Name</h5>
+											<p class="card-text"><small class="text-muted">Singer Name</small></p>
+										</div>
+									</div>
+									<div class="col-2 text-end">
+										<i class="fa-regular fa-heart text-white"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="card border-0 mb-3" style="max-width: 540px;">
+								<div class="row g-0">
+									<div class="col-1 d-flex align-middle">
+										<p class="text-white align-middle m-0">01</p>
+									</div>
+									<div class="col-3">
+										<a href="#offcanvasBottom" class="" role="button" data-bs-toggle="offcanvas">
+											<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+												class="img-fluid rounded-start scale-up-img" alt="song-thumbnail">
+										</a>
+									</div>
+									<div class="col-6">
+										<div class="card-body py-0">
+											<h5 class="card-title">Song Name</h5>
+											<p class="card-text"><small class="text-muted">Singer Name</small></p>
+										</div>
+									</div>
+									<div class="col-2 text-end">
+										<i class="fa-regular fa-heart text-white"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="card border-0 mb-3" style="max-width: 540px;">
+								<div class="row g-0">
+									<div class="col-1 d-flex align-middle">
+										<p class="text-white align-middle m-0">01</p>
+									</div>
+									<div class="col-3">
+										<a href="#offcanvasBottom" class="" role="button" data-bs-toggle="offcanvas">
+											<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+												class="img-fluid rounded-start scale-up-img" alt="song-thumbnail">
+										</a>
+									</div>
+									<div class="col-6">
+										<div class="card-body py-0">
+											<h5 class="card-title">Song Name</h5>
+											<p class="card-text"><small class="text-muted">Singer Name</small></p>
+										</div>
+									</div>
+									<div class="col-2 text-end">
+										<i class="fa-regular fa-heart text-white"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="card border-0 mb-3" style="max-width: 540px;">
+								<div class="row g-0">
+									<div class="col-1 d-flex align-middle">
+										<p class="text-white align-middle m-0">01</p>
+									</div>
+									<div class="col-3">
+										<a href="#offcanvasBottom" class="" role="button" data-bs-toggle="offcanvas">
+											<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+												class="img-fluid rounded-start scale-up-img" alt="song-thumbnail">
+										</a>
+									</div>
+									<div class="col-6">
+										<div class="card-body py-0">
+											<h5 class="card-title">Song Name</h5>
+											<p class="card-text"><small class="text-muted">Singer Name</small></p>
+										</div>
+									</div>
+									<div class="col-2 text-end">
+										<i class="fa-regular fa-heart text-white"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="card border-0 mb-3" style="max-width: 540px;">
+								<div class="row g-0">
+									<div class="col-1 d-flex align-middle">
+										<p class="text-white align-middle m-0">01</p>
+									</div>
+									<div class="col-3">
+										<a href="#offcanvasBottom" class="" role="button" data-bs-toggle="offcanvas">
+											<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+												class="img-fluid rounded-start scale-up-img" alt="song-thumbnail">
+										</a>
+									</div>
+									<div class="col-6">
+										<div class="card-body py-0">
+											<h5 class="card-title">Song Name</h5>
+											<p class="card-text"><small class="text-muted">Singer Name</small></p>
+										</div>
+									</div>
+									<div class="col-2 text-end">
+										<i class="fa-regular fa-heart text-white"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="card border-0 mb-3" style="max-width: 540px;">
+								<div class="row g-0">
+									<div class="col-1 d-flex align-middle">
+										<p class="text-white align-middle m-0">01</p>
+									</div>
+									<div class="col-3">
+										<a href="#offcanvasBottom" class="" role="button" data-bs-toggle="offcanvas">
+											<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+												class="img-fluid rounded-start scale-up-img" alt="song-thumbnail">
+										</a>
+									</div>
+									<div class="col-6">
+										<div class="card-body py-0">
+											<h5 class="card-title">Song Name</h5>
+											<p class="card-text"><small class="text-muted">Singer Name</small></p>
+										</div>
+									</div>
+									<div class="col-2 text-end">
+										<i class="fa-regular fa-heart text-white"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="card border-0 mb-3" style="max-width: 540px;">
+								<div class="row g-0">
+									<div class="col-1 d-flex align-middle">
+										<p class="text-white align-middle m-0">01</p>
+									</div>
+									<div class="col-3">
+										<a href="#offcanvasBottom" class="" role="button" data-bs-toggle="offcanvas">
+											<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+												class="img-fluid rounded-start scale-up-img" alt="song-thumbnail">
+										</a>
+									</div>
+									<div class="col-6">
+										<div class="card-body py-0">
+											<h5 class="card-title">Song Name</h5>
+											<p class="card-text"><small class="text-muted">Singer Name</small></p>
+										</div>
+									</div>
+									<div class="col-2 text-end">
+										<i class="fa-regular fa-heart text-white"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="card border-0 mb-3" style="max-width: 540px;">
+								<div class="row g-0">
+									<div class="col-1 d-flex align-middle">
+										<p class="text-white align-middle m-0">01</p>
+									</div>
+									<div class="col-3">
+										<a href="#offcanvasBottom" class="" role="button" data-bs-toggle="offcanvas">
+											<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+												class="img-fluid rounded-start scale-up-img" alt="song-thumbnail">
+										</a>
+									</div>
+									<div class="col-6">
+										<div class="card-body py-0">
+											<h5 class="card-title">Song Name</h5>
+											<p class="card-text"><small class="text-muted">Singer Name</small></p>
+										</div>
+									</div>
+									<div class="col-2 text-end">
+										<i class="fa-regular fa-heart text-white"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="card border-0 mb-3" style="max-width: 540px;">
+								<div class="row g-0">
+									<div class="col-1 d-flex align-middle">
+										<p class="text-white align-middle m-0">01</p>
+									</div>
+									<div class="col-3">
+										<a href="#offcanvasBottom" class="" role="button" data-bs-toggle="offcanvas">
+											<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+												class="img-fluid rounded-start scale-up-img" alt="song-thumbnail">
+										</a>
+									</div>
+									<div class="col-6">
+										<div class="card-body py-0">
+											<h5 class="card-title">Song Name</h5>
+											<p class="card-text"><small class="text-muted">Singer Name</small></p>
+										</div>
+									</div>
+									<div class="col-2 text-end">
+										<i class="fa-regular fa-heart text-white"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</ol>
+
+				</div>
+
+			</aside>
+
+		</div>
+
+	</main>
+
+	<footer>
+
+		<div class="offcanvas offcanvas-bottom h-auto py-2" data-bs-backdrop="static" tabindex="-1"
+			id="active-song-description">
+
+			<div class="container">
+				<div class="row">
+
+					<div class="col-3">
+
+						<div class="card border-0" style="max-width: 540px;">
+							<div class="row">
+								<div class="col-2 p-0">
+									<img src="https://i.scdn.co/image/ab67616d00001e029d085e3c00e22bda745185ed"
+										class="w-100 rounded-start scale-up-img" alt="song-thumbnail">
+								</div>
+								<div class="col-7">
+									<div class="card-body py-0">
+										<h5 class="card-title h6 my-1">Onism</h5>
+										<p class="card-text"><small class="text-muted" style="font-size: 0.7rem;">Aug 17</small></p>
+									</div>
+								</div>
+								<div class="col-3 text-white">
+									<i class="far fa-heart"></i>
+									<i class="fas fa-ban"></i>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col-5">
+
+						<div class="player text-white">
+
+							<div class="col-12 justify-content-evenly d-flex my-1">
+								<i class="fas fa-random d-inline-block"></i>
+								<i class="fas fa-step-backward d-inline-block"></i>
+								<i class="fas fa-pause-circle d-inline-block"></i>
+								<i class="fas fa-step-forward d-inline-block"></i>
+								<i class="fas fa-redo d-inline-block"></i>
+							</div>
+
+							<div class="col-12 justify-content-evenly d-flex">
+								<span class="d-inline-block">1:39</span>
+								<input type="range" min="0" max="100" value="34">
+								<span class="d-inline-block">4:44</span>
+							</div>
+
+						</div>
+
+					</div>
+
+
+					<div class="col-4 text-white justify-content-evenly d-flex">
+
+						<i class="fas fa-list-ul my-auto d-inline-block"></i>
+						<i class="fas fa-laptop my-auto d-inline-block"></i>
+						<i class="fas fa-volume-up my-auto d-inline-block"></i>
+						<input type="range" min="0" max="100" value="30">
+						<i class="fas fa-expand-alt my-auto d-inline-block"></i>
+
+
+					</div>
+
+				</div>
+			</div>
+
+
+		</div>
+
+	</footer>
+
+	<!-- Script Link -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+		crossorigin="anonymous"></script>
+
+</body>
+
+</html>
